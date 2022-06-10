@@ -1,0 +1,13 @@
+The main problem to solve is to forecast revenue values generated from appointments
+The main dataset contains dates, revenues, doctor id, patient id, duration of appointment, etc.
+I have used dates and the previous revenue values to predict the future 30 days value.
+The dates were repeated and they were irregular (e.g. 2 or 3 days gap or even more between 2 dates) too, so I had to accummulate all the dates to unique date and add the respective revenues to prepare a clean dataset to work with.
+The dates were converted to datetime python datatype format and they were indexed too.
+I used 3 models ARIMA, SARIMA, and SARIMAX to forecast the values
+I also used LSTM model in another file to test, but the LSTM model was not good enough in comparison to the ARIMA or SARIMA (the values were negative, or too high)
+May be LSTM could not perform well due to less data (132 rows only after unique dates were considered, 4071 rows before repeated dates were present, still not a very high number for LSTM to handle)
+Although, I used only dates and revenues, I can also leverage other variables (e.g. duration of appointment, patient id, client id, etc.) to experiment and check whether they affect forecast values
+I also used AutoTS (Auto Time Series) to compare results using various other Time Series models 
+(did not do a lot of hardwork, just tested with a few lines of code to figure out how are things in terms of forecasting)
+AutoTS is also good for high amount of data
+FbProphet can also be tested for results later
